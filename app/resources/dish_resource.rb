@@ -12,6 +12,8 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :combinations
+
   belongs_to :user
 
   # Indirect associations

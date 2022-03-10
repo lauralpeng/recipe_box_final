@@ -9,6 +9,8 @@ class CombinationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :dish
+
   # Indirect associations
 
 end
