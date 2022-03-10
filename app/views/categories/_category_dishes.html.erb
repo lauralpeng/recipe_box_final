@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @category.dishes.each do |dish| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to dish, dish %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == dish.user %>
           <%= link_to dish, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="category_dishes_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "categories/category_dishes_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

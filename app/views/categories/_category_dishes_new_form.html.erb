@@ -1,67 +1,37 @@
-<!-- Form dish start -->
 <%= form_with(model: @dish, local: true) do |f| %>
-<!-- Form dish end -->
 
-  <!-- Label and input for dish_name start -->
   <div class="form-group">
     <%= f.label :dish_name %>
 
-    <!-- Input for dish_name start -->
     <%= f.text_field :dish_name, class: "form-control" %>
-    <!-- Input for dish_name end -->
   </div>
-  <!-- Label and input for dish_name end -->
 
-  <!-- Label and input for source start -->
   <div class="form-group">
     <%= f.label :source %>
 
-    <!-- Input for source start -->
     <%= f.text_field :source, class: "form-control" %>
-    <!-- Input for source end -->
   </div>
-  <!-- Label and input for source end -->
 
-  <!-- Label and input for time_required start -->
   <div class="form-group">
     <%= f.label :time_required %>
 
-    <!-- Input for time_required start -->
     <%= f.text_field :time_required, class: "form-control" %>
-    <!-- Input for time_required end -->
   </div>
-  <!-- Label and input for time_required end -->
 
-  <!-- Label and input for category_id start -->
-  <!-- Input for category_id start -->
   <%= f.hidden_field :category_id, value: @category.id %>
-  <!-- Input for category_id end -->
-  <!-- Label and input for category_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for dish_photo start -->
   <div class="form-group">
     <%= f.label :dish_photo %>
 
-    <!-- Input for dish_photo start -->
     <%= f.file_field :dish_photo, class: "form-control" %>
-    <!-- Input for dish_photo end -->
   </div>
-  <!-- Label and input for dish_photo end -->
 
-  <!-- Label and input for instructions start -->
   <div class="form-group">
     <%= f.label :instructions %>
-    <!-- Input for instructions start -->
     <%= f.text_area :instructions, rows: "3", class: "form-control" %>
-    <!-- Input for instructions end -->
   </div>
-  <!-- Label and input for instructions end -->
 
   <%= f.submit "Create dish", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

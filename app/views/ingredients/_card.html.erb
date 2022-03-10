@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Ingredient name</dt>
-      <!-- Display ingredient_name start -->
       <dd><%= ingredient.ingredient_name %></dd>
-      <!-- Display ingredient_name end -->
 
       <dt>Have vs not</dt>
-      <!-- Display have_vs_not start -->
       <dd><%= ingredient.have_vs_not %></dd>
-      <!-- Display have_vs_not end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back ingredient, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link ingredient start -->
       <div class="col">
         <%= link_to edit_ingredient_url(ingredient), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link ingredient end -->
 
-      <!-- Delete link ingredient start -->
       <div class="col">
         <%= link_to ingredient, method: :delete, data: { confirm: "Do you really want to delete this ingredient?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link ingredient end -->
     </div>
   </div>
 

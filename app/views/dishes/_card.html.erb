@@ -6,49 +6,35 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Dish name</dt>
-      <!-- Display dish_name start -->
       <dd><%= dish.dish_name %></dd>
-      <!-- Display dish_name end -->
 
       <dt>Source</dt>
-      <!-- Display source start -->
       <dd><%= dish.source %></dd>
-      <!-- Display source end -->
 
       <dt>Time required</dt>
-      <!-- Display time_required start -->
       <dd><%= dish.time_required %></dd>
-      <!-- Display time_required end -->
 
       <dt>Category</dt>
-      <!-- Display category_id start -->
       <dd>
         <% if @dish.category.present? %>
           <%= link_to dish.category, dish.category %>
         <% end %>
       </dd>
-      <!-- Display category_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @dish.user.present? %>
           <%= link_to dish.user, dish.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Dish photo</dt>
-      <!-- Display dish_photo start -->
       <dd>
         <%= cl_image_tag @dish.dish_photo, class: "img-fluid" %>
       </dd>
-      <!-- Display dish_photo end -->
 
       <dt>Instructions</dt>
-      <!-- Display instructions start -->
       <dd><%= dish.instructions %></dd>
-      <!-- Display instructions end -->
 
     </dl>
 
@@ -57,7 +43,6 @@
         <%= link_to_show_or_back dish, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link dish start -->
       <div class="col">
         <% if current_user == @dish.user %>
           <%= link_to edit_dish_url(dish), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -65,9 +50,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link dish end -->
 
-      <!-- Delete link dish start -->
       <div class="col">
         <% if current_user == @dish.user %>
           <%= link_to dish, method: :delete, data: { confirm: "Do you really want to delete this dish?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -75,7 +58,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link dish end -->
     </div>
   </div>
 
