@@ -4,6 +4,8 @@ RSpec.describe Dish, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:combinations) }
+
     it { should belong_to(:user) }
 
     end

@@ -1,6 +1,9 @@
 class Dish < ApplicationRecord
   # Direct associations
 
+  has_many   :combinations,
+             :dependent => :destroy
+
   belongs_to :user
 
   # Indirect associations
