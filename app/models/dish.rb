@@ -1,4 +1,6 @@
 class Dish < ApplicationRecord
+  mount_base64_uploader :dish_photo, DishPhotoUploader
+
   # Direct associations
 
   belongs_to :category,

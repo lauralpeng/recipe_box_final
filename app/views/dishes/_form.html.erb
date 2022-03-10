@@ -146,7 +146,7 @@
 
     <%= f.label :dish_photo %>
     <!-- Input for dish_photo start -->
-    <%= f.text_field :dish_photo, class: dish_photo_class, placeholder: "Enter dish photo" %>
+    <%= f.file_field :dish_photo, class: "form-control" %>
     <!-- Input for dish_photo end -->
     <% if dish_photo_was_invalid %>
       <% dish.errors.full_messages_for(:dish_photo).each do |message| %>

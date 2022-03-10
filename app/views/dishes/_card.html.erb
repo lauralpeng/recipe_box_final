@@ -32,7 +32,9 @@
 
       <dt>Dish photo</dt>
       <!-- Display dish_photo start -->
-      <dd><%= dish.dish_photo %></dd>
+      <dd>
+        <%= cl_image_tag @dish.dish_photo, class: "img-fluid" %>
+      </dd>
       <!-- Display dish_photo end -->
 
       <dt>Instructions</dt>
