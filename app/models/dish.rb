@@ -4,10 +4,10 @@ class Dish < ApplicationRecord
   # Direct associations
 
   belongs_to :category,
-             :counter_cache => true
+             counter_cache: true
 
   has_many   :combinations,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user
 
@@ -15,14 +15,13 @@ class Dish < ApplicationRecord
 
   # Validations
 
-  validates :category_id, :presence => true
+  validates :category_id, presence: true
 
-  validates :user_id, :presence => true
+  validates :user_id, presence: true
 
   # Scopes
 
   def to_s
     dish_name
   end
-
 end

@@ -1,10 +1,10 @@
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :set_ingredient, only: %i[show edit update destroy]
 
   # GET /ingredients
   def index
     @q = Ingredient.ransack(params[:q])
-    @ingredients = @q.result(:distinct => true).includes(:combinations).page(params[:page]).per(10)
+    @ingredients = @q.result(distinct: true).includes(:combinations).page(params[:page]).per(10)
   end
 
   # GET /ingredients/1
@@ -18,15 +18,14 @@ class IngredientsController < ApplicationController
   end
 
   # GET /ingredients/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ingredients
   def create
     @ingredient = Ingredient.new(ingredient_params)
 
     if @ingredient.save
-      redirect_to @ingredient, notice: 'Ingredient was successfully created.'
+      redirect_to @ingredient, notice: "Ingredient was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class IngredientsController < ApplicationController
   # PATCH/PUT /ingredients/1
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to @ingredient, notice: 'Ingredient was successfully updated.'
+      redirect_to @ingredient, notice: "Ingredient was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,19 @@ class IngredientsController < ApplicationController
   # DELETE /ingredients/1
   def destroy
     @ingredient.destroy
-    redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.'
+    redirect_to ingredients_url,
+                notice: "Ingredient was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def ingredient_params
-      params.require(:ingredient).permit(:ingredient_name, :have_vs_not)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def ingredient_params
+    params.require(:ingredient).permit(:ingredient_name, :have_vs_not)
+  end
 end

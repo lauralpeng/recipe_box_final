@@ -1,10 +1,9 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :dishes,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 

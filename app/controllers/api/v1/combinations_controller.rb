@@ -13,7 +13,7 @@ class Api::V1::CombinationsController < Api::V1::GraphitiController
     combination = CombinationResource.build(params)
 
     if combination.save
-      render jsonapi: combination, status: 201
+      render jsonapi: combination, status: :created
     else
       render jsonapi_errors: combination
     end
@@ -33,7 +33,7 @@ class Api::V1::CombinationsController < Api::V1::GraphitiController
     combination = CombinationResource.find(params)
 
     if combination.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: combination
     end

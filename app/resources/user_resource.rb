@@ -7,8 +7,7 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :dishes
+  has_many :dishes
 
   # Indirect associations
-
 end
