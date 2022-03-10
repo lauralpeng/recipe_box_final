@@ -24,7 +24,12 @@ class CombinationsController < ApplicationController
     @combination = Combination.new(combination_params)
 
     if @combination.save
-      redirect_to @combination, notice: 'Combination was successfully created.'
+      message = 'Combination was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @combination, notice: message
+      end
     else
       render :new
     end

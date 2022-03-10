@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    @dish = Dish.new
   end
 
   # GET /categories/new

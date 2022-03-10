@@ -8,6 +8,7 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/1
   def show
+    @combination = Combination.new
   end
 
   # GET /ingredients/new
