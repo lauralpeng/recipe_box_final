@@ -3,7 +3,8 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients
   def index
-    @ingredients = Ingredient.page(params[:page]).per(10)
+    @q = Ingredient.ransack(params[:q])
+    @ingredients = @q.result(:distinct => true).includes(:combinations).page(params[:page]).per(10)
   end
 
   # GET /ingredients/1

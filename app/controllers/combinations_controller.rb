@@ -3,7 +3,8 @@ class CombinationsController < ApplicationController
 
   # GET /combinations
   def index
-    @combinations = Combination.page(params[:page]).per(10)
+    @q = Combination.ransack(params[:q])
+    @combinations = @q.result(:distinct => true).includes(:dish, :ingredient).page(params[:page]).per(10)
   end
 
   # GET /combinations/1
