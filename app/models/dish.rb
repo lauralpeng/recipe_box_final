@@ -1,6 +1,9 @@
 class Dish < ApplicationRecord
   # Direct associations
 
+  belongs_to :category,
+             :counter_cache => true
+
   has_many   :combinations,
              :dependent => :destroy
 
