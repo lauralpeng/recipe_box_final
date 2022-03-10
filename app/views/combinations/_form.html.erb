@@ -1,0 +1,109 @@
+<% was_validated = combination.errors.any? %>
+
+<%= form_with(model: combination, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for ingredient_id start -->
+  <div class="form-group">
+    <% ingredient_class = "form-control" %>
+    <% ingredient_was_invalid = combination.errors.include?(:ingredient) %>
+
+    <% if was_validated %>
+      <% if ingredient_was_invalid %>
+        <% ingredient_class << " is-invalid" %>
+      <% else %>
+        <% ingredient_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :ingredient_id %>
+    <!-- Input for ingredient_id start -->
+    <%= f.number_field :ingredient_id, class: ingredient_class, placeholder: "Enter ingredient" %>
+    <!-- Input for ingredient_id end -->
+    <% if ingredient_was_invalid %>
+      <% combination.errors.full_messages_for(:ingredient).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for ingredient_id end -->
+  <!-- Label and input for quantity start -->
+  <div class="form-group">
+    <% quantity_class = "form-control" %>
+    <% quantity_was_invalid = combination.errors.include?(:quantity) %>
+
+    <% if was_validated %>
+      <% if quantity_was_invalid %>
+        <% quantity_class << " is-invalid" %>
+      <% else %>
+        <% quantity_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :quantity %>
+    <!-- Input for quantity start -->
+    <%= f.text_field :quantity, class: quantity_class, placeholder: "Enter quantity" %>
+    <!-- Input for quantity end -->
+    <% if quantity_was_invalid %>
+      <% combination.errors.full_messages_for(:quantity).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for quantity end -->
+  <!-- Label and input for unit start -->
+  <div class="form-group">
+    <% unit_class = "form-control" %>
+    <% unit_was_invalid = combination.errors.include?(:unit) %>
+
+    <% if was_validated %>
+      <% if unit_was_invalid %>
+        <% unit_class << " is-invalid" %>
+      <% else %>
+        <% unit_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :unit %>
+    <!-- Input for unit start -->
+    <%= f.text_field :unit, class: unit_class, placeholder: "Enter unit" %>
+    <!-- Input for unit end -->
+    <% if unit_was_invalid %>
+      <% combination.errors.full_messages_for(:unit).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for unit end -->
+  <!-- Label and input for dish_id start -->
+  <div class="form-group">
+    <% dish_class = "form-control" %>
+    <% dish_was_invalid = combination.errors.include?(:dish) %>
+
+    <% if was_validated %>
+      <% if dish_was_invalid %>
+        <% dish_class << " is-invalid" %>
+      <% else %>
+        <% dish_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :dish_id %>
+    <!-- Input for dish_id start -->
+    <%= f.number_field :dish_id, class: dish_class, placeholder: "Enter dish" %>
+    <!-- Input for dish_id end -->
+    <% if dish_was_invalid %>
+      <% combination.errors.full_messages_for(:dish).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for dish_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

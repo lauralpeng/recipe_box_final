@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Combination #<%= combination.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Ingredient</dt>
+      <!-- Display ingredient_id start -->
+      <dd><%= combination.ingredient_id %></dd>
+      <!-- Display ingredient_id end -->
+
+      <dt>Quantity</dt>
+      <!-- Display quantity start -->
+      <dd><%= combination.quantity %></dd>
+      <!-- Display quantity end -->
+
+      <dt>Unit</dt>
+      <!-- Display unit start -->
+      <dd><%= combination.unit %></dd>
+      <!-- Display unit end -->
+
+      <dt>Dish</dt>
+      <!-- Display dish_id start -->
+      <dd><%= combination.dish_id %></dd>
+      <!-- Display dish_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back combination, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link combination start -->
+      <div class="col">
+        <%= link_to edit_combination_url(combination), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link combination end -->
+
+      <!-- Delete link combination start -->
+      <div class="col">
+        <%= link_to combination, method: :delete, data: { confirm: "Do you really want to delete this combination?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link combination end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(combination.updated_at) %> ago
+  </div>
+</div>
