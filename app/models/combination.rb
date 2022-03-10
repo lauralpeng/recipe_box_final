@@ -5,6 +5,8 @@ class Combination < ApplicationRecord
 
   # Validations
 
+  validates :dish_id, :presence => true
+
   # Scopes
 
   def to_s

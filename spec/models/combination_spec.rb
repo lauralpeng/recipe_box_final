@@ -12,5 +12,7 @@ RSpec.describe Combination, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:dish_id) }
+
     end
 end
