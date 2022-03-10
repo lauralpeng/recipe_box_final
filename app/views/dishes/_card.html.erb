@@ -22,12 +22,20 @@
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= dish.category_id %></dd>
+      <dd>
+        <% if @dish.category.present? %>
+          <%= link_to dish.category, dish.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= dish.user_id %></dd>
+      <dd>
+        <% if @dish.user.present? %>
+          <%= link_to dish.user, dish.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Dish photo</dt>

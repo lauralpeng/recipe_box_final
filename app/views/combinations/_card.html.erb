@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Ingredient</dt>
       <!-- Display ingredient_id start -->
-      <dd><%= combination.ingredient_id %></dd>
+      <dd>
+        <% if @combination.ingredient.present? %>
+          <%= link_to combination.ingredient, combination.ingredient %>
+        <% end %>
+      </dd>
       <!-- Display ingredient_id end -->
 
       <dt>Quantity</dt>
@@ -22,7 +26,11 @@
 
       <dt>Dish</dt>
       <!-- Display dish_id start -->
-      <dd><%= combination.dish_id %></dd>
+      <dd>
+        <% if @combination.dish.present? %>
+          <%= link_to combination.dish, combination.dish %>
+        <% end %>
+      </dd>
       <!-- Display dish_id end -->
 
     </dl>
