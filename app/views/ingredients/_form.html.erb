@@ -1,0 +1,56 @@
+<% was_validated = ingredient.errors.any? %>
+
+<%= form_with(model: ingredient, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for ingredient_name start -->
+  <div class="form-group">
+    <% ingredient_name_class = "form-control" %>
+    <% ingredient_name_was_invalid = ingredient.errors.include?(:ingredient_name) %>
+
+    <% if was_validated %>
+      <% if ingredient_name_was_invalid %>
+        <% ingredient_name_class << " is-invalid" %>
+      <% else %>
+        <% ingredient_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :ingredient_name %>
+    <!-- Input for ingredient_name start -->
+    <%= f.text_field :ingredient_name, class: ingredient_name_class, placeholder: "Enter ingredient name" %>
+    <!-- Input for ingredient_name end -->
+    <% if ingredient_name_was_invalid %>
+      <% ingredient.errors.full_messages_for(:ingredient_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for ingredient_name end -->
+  <!-- Label and input for have_vs_not start -->
+  <div class="form-check">
+    <% have_vs_not_class = "form-check-input" %>
+    <% have_vs_not_was_invalid = ingredient.errors.include?(:have_vs_not) %>
+
+    <% if was_validated %>
+      <% if have_vs_not_was_invalid %>
+        <% have_vs_not_class << " is-invalid" %>
+      <% else %>
+        <% have_vs_not_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :have_vs_not, class: "form-check-label" do %>
+      <%= f.check_box :have_vs_not, class: have_vs_not_class %> Have vs not
+    <% end %>
+    <% if have_vs_not_was_invalid %>
+      <% ingredient.errors.full_messages_for(:have_vs_not).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for have_vs_not end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
