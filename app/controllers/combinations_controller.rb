@@ -42,8 +42,14 @@ class CombinationsController < ApplicationController
   # DELETE /combinations/1
   def destroy
     @combination.destroy
-    redirect_to combinations_url, notice: 'Combination was successfully destroyed.'
+    message = "Combination was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to combinations_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
