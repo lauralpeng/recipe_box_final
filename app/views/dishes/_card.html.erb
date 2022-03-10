@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Dish #<%= dish.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Dish name</dt>
+      <!-- Display dish_name start -->
+      <dd><%= dish.dish_name %></dd>
+      <!-- Display dish_name end -->
+
+      <dt>Source</dt>
+      <!-- Display source start -->
+      <dd><%= dish.source %></dd>
+      <!-- Display source end -->
+
+      <dt>Time required</dt>
+      <!-- Display time_required start -->
+      <dd><%= dish.time_required %></dd>
+      <!-- Display time_required end -->
+
+      <dt>Category</dt>
+      <!-- Display category_id start -->
+      <dd><%= dish.category_id %></dd>
+      <!-- Display category_id end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= dish.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Dish photo</dt>
+      <!-- Display dish_photo start -->
+      <dd><%= dish.dish_photo %></dd>
+      <!-- Display dish_photo end -->
+
+      <dt>Instructions</dt>
+      <!-- Display instructions start -->
+      <dd><%= dish.instructions %></dd>
+      <!-- Display instructions end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back dish, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link dish start -->
+      <div class="col">
+        <%= link_to edit_dish_url(dish), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link dish end -->
+
+      <!-- Delete link dish start -->
+      <div class="col">
+        <%= link_to dish, method: :delete, data: { confirm: "Do you really want to delete this dish?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link dish end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(dish.updated_at) %> ago
+  </div>
+</div>
