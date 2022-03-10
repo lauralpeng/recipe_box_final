@@ -1,6 +1,8 @@
 class Combination < ApplicationRecord
   # Direct associations
 
+  belongs_to :ingredient
+
   belongs_to :dish,
              :counter_cache => true
 
