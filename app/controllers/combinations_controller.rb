@@ -3,7 +3,7 @@ class CombinationsController < ApplicationController
 
   # GET /combinations
   def index
-    @combinations = Combination.all
+    @combinations = Combination.page(params[:page]).per(10)
   end
 
   # GET /combinations/1

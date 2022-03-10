@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.page(params[:page]).per(10)
   end
 
   # GET /ingredients/1
