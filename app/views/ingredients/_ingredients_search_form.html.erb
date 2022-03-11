@@ -10,13 +10,13 @@
     <%= f.label :have_vs_not_eq, "Have vs not" %>
     <div>
       <label class="radio-inline">
-        <%= f.radio_button :have_vs_not_eq, "1", checked: ((params[:q] && params[:q][:have_vs_not_eq]) == "1" ? "checked" : "") %> Yes
+        <%# f.radio_button :have_vs_not_eq, "1", checked: ((params[:q] && params[:q][:have_vs_not_eq]) == "1" ? "checked" : "") %> Yes
       </label>
       <label class="radio-inline">
-        <%= f.radio_button :have_vs_not_eq, "0", checked: ((params[:q] && params[:q][:have_vs_not_eq]) == "0" ? "checked" : "")%> No
+        <%#= f.radio_button :have_vs_not_eq, "0", checked: ((params[:q] && params[:q][:have_vs_not_eq]) == "0" ? "checked" : "")%> No
       </label>
       <label class="radio-inline">
-        <%= f.radio_button :have_vs_not_eq, ""%> Either
+        <%#= f.radio_button :have_vs_not_eq, ""%> Either
       </label>
     </div>
   </div>
